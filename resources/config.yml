@@ -1,7 +1,7 @@
 disable-custom-skins: false
-disable-custom-capes: true
+disable-custom-capes: false
 disable-custom-geometry: true
-disable-ingame-skin-change: true
+disable-ingame-skin-change: false
 disable-transparent-skins: true
 allowed-transparency-percentage: 5
 # Recommended minimum percentage for slim skins: 4
