@@ -20,9 +20,9 @@ use function strlen;
 
 class Main extends PluginBase implements Listener {
 
-	public const BOUNDS_64_64 = 0;
-	public const BOUNDS_64_32 = self::BOUNDS_64_64;
-	public const BOUNDS_128_128 = 1;
+	public const int BOUNDS_64_64 = 0;
+	public const int BOUNDS_64_32 = self::BOUNDS_64_64;
+	public const int BOUNDS_128_128 = 1;
 
 	protected Skin $fallbackSkin;
 	private array $skinBounds = [];
@@ -40,7 +40,7 @@ class Main extends PluginBase implements Listener {
 
 		$this->fallbackSkin = $fallbackSkin;
 
-		$cubes = $this->getCubes(json_decode(stream_get_contents($this->getResource('humanoid.json')), true)['geometry.humanoid']);
+		$cubes = $this->getCubes(json_decode(file_get_contents($this->getResourcePath('humanoid.json')), true)['geometry.humanoid']);
 		$this->skinBounds[self::BOUNDS_64_64] = $this->getSkinBounds($cubes);
 		$this->skinBounds[self::BOUNDS_128_128] = $this->getSkinBounds($cubes, 2.0);
 
