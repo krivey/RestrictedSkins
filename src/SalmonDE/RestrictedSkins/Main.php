@@ -20,9 +20,9 @@ use function strlen;
 
 class Main extends PluginBase implements Listener {
 
-	public const int BOUNDS_64_64 = 0;
-	public const int BOUNDS_64_32 = self::BOUNDS_64_64;
-	public const int BOUNDS_128_128 = 1;
+	public const BOUNDS_64_64 = 0;
+	public const BOUNDS_64_32 = self::BOUNDS_64_64;
+	public const BOUNDS_128_128 = 1;
 
 	protected Skin $fallbackSkin;
 	private array $skinBounds = [];
