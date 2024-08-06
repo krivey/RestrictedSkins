@@ -67,11 +67,11 @@ class Main extends PluginBase implements Listener {
 		$skinData = ($noCustomSkins = $this->getConfig()->get('disable-custom-skins') === true) ? $this->fallbackSkin : $skin->getSkinData();
 
 		if (!$noCustomSkins && $this->getConfig()->get('disable-transparent-skins') === true && $this->getSkinTransparencyPercentage($skinData) > $this->getConfig()->get('allowed-transparency-percentage')) {
-			$skinData = $this->fallbackSkin;
+			$skinData = $this->getFallbackSkinData();
 		}
 
 		$capeData = $this->getConfig()->get('disable-custom-capes') === true ? '' : $skin->getCapeData();
-		$geometryName = $this->getConfig()->get('disable-custom-geometry') === true && $skin->getGeometryName() !== 'geometry.humanoid.customSlim' ? 'geometry.humanoid.custom' : $skin->getGeometryName();
+		$geometryName = $this->getFallbackSkinData() === $skinData ? 'geometry.humanoid.custom' : ($this->getConfig()->get('disable-custom-geometry') === true && $skin->getGeometryName() !== 'geometry.humanoid.customSlim' ? 'geometry.humanoid.custom' : $skin->getGeometryName());
 		$geometryData = $this->getConfig()->get('disable-custom-geometry') === true ? '' : $skin->getGeometryData();
 
 		return new Skin($skin->getSkinId(), $skinData, $capeData, $geometryName, $geometryData);
